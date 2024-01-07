@@ -33,7 +33,7 @@ The above features/variables of red_wine had numerical data pertaining to each w
 
 The **_.head(10)_** method was used to preview the first 10 rows of the dataset and likewise, **_.tail(20)_** was used to preview the final 20 rows. It was observed that some columns had missing values which was further expolred using **_.info()** method
 
-```{python}
+```python
 dataset.tail(20)
 dataset.head(10)
 dataset.info()
@@ -44,7 +44,7 @@ Upon using the **_.info()_** method to obtain an overwiew of the data provided, 
 
 - As a fix, the missing values were replaced with their respective mean values obtained from arithmetic operations.
   
-```
+```python
     mean_fixed_acidity = dataset['fixed acidity'].mean()
     mean_volatile_acidity = dataset['volatile acidity'].mean()
     mean_chlorides = dataset['chlorides'].mean()
@@ -54,7 +54,7 @@ Upon using the **_.info()_** method to obtain an overwiew of the data provided, 
 ```
 <h6>Rounding off all obtained values to match respective data in the dataset</h6>
 
-```
+```python
     mean_fixed_acidity = mean_fixed_acidity.round(2)
     mean_volatile_acidity = mean_volatile_acidity.round(2)    
     mean_chlorides = mean_chlorides.round(3)
@@ -64,7 +64,7 @@ Upon using the **_.info()_** method to obtain an overwiew of the data provided, 
  ```
  <h6>And finally, replacing all null values</h6>
 
-```
+```python
     dataset['fixed acidity'] = dataset['fixed acidity'].filln(mean_fixed_acidity)
     dataset['volatile acidity'] = dataset['volatile acidity'].fillna(mean_volatile_acidity)
     dataset['chlorides'] = dataset['chlorides'].fillna(mean_chlorides)
